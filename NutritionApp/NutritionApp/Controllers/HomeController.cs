@@ -13,18 +13,31 @@ namespace NutritionApp.Controllers
             return View();
         }
 
+        public ActionResult Products()
+        {
+            ViewBag.Message = "Products";
+
+            return View();
+        }
+
+        public ActionResult Calendar()
+        {
+            ViewBag.Message = "Calendar";
+
+            return View();
+        }
+
+        public ActionResult Suggestions()
+        {
+            ViewBag.Message = "Informations";
+            return View();
+        }
+
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
+            ViewBag.Message = "About";
             return View();
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }
