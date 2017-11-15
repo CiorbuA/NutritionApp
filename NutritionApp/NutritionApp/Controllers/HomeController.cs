@@ -15,7 +15,7 @@ namespace NutritionApp.Controllers
 
         public ActionResult Products()
         {
-            ViewBag.Message = "Products";
+            ViewBag.Message = "Categories";
 
             return View();
         }
@@ -29,7 +29,7 @@ namespace NutritionApp.Controllers
 
         public ActionResult Suggestions()
         {
-            ViewBag.Message = "Informations";
+            ViewBag.Message = "Details";
             return View();
         }
 
