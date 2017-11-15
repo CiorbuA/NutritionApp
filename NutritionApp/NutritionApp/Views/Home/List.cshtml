@@ -1,0 +1,30 @@
+﻿@model List<NutritionApp.Nutrition>
+
+@{
+    ViewBag.Title = "List";
+    var grid = new WebGrid(source: Model, canPage: true, rowsPerPage:20);
+    grid.Pager(WebGridPagerModes.All);
+}
+
+<h2>Produse </h2>
+<div id="content">
+@grid.GetHtml(
+    tableStyle: "table table-bordered table-responsive table-hover",
+    headerStyle:"",
+    footerStyle:"",
+    alternatingRowStyle:"",
+    rowStyle:"",
+    columns:grid.Columns(
+
+        grid.Column(columnName: "Id",header:"Id"),
+        grid.Column(columnName: "Categorie",header:"Categorie"),
+        grid.Column(columnName: "Nume", header: "Nume"),
+        grid.Column(columnName: "kCal", header: "kCal"),
+        grid.Column(columnName: "Proteine", header: "Proteine"),
+        grid.Column(columnName: "Glucide", header: "Glucide"),
+        grid.Column(columnName: "Lipide", header: "Lipide"),
+        grid.Column(columnName: "Fibre", header: "Fibre")
+
+        ))
+</div>
+

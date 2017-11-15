@@ -13,11 +13,14 @@ namespace NutritionApp.Controllers
             return View();
         }
 
-        public ActionResult Products()
+        public ActionResult List()
         {
-            ViewBag.Message = "Categories";
-
-            return View();
+            var nutrition = new List<Nutrition>();
+            using (NutritionEntities dc = new NutritionEntities())
+            {
+                nutrition = dc.Nutritions.ToList();
+            }
+            return View(nutrition);
         }
 
         public ActionResult Calendar()
