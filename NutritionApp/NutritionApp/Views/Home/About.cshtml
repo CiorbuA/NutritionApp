@@ -1,7 +1,100 @@
-﻿@{
+﻿@model NutritionApp.Models.RMB
+
+@{
     ViewBag.Title = "About";
 }
 <div class="container">
     <img src="~/Views/1.jpg" class="img-rounded" alt="" width="304" height="236">
 </div>
+
+<div class="box">
+    <div class="box-body">
+        @using (Html.BeginForm("CaldulateRMB", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form"}))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>
+                    Calculate RMB
+                </h4>
+                <hr />
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    <div class="col-md-2 control-label">
+                        Name
+                    </div>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-2 control-label">
+                        Height
+                    </div>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Height, new { @class = "form-control", @type="number" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-2 control-label">
+                        Weight
+                    </div>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Weight, new { @class = "form-control", @type = "number" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-2 control-label">
+                        Gender
+                    </div>
+                    <div class="col-md-2">
+                        Male
+                        @Html.RadioButtonFor(m => m.Gender, "male")
+                    </div>
+                    <div class="col-md-2">
+                        Female
+                        @Html.RadioButtonFor(m => m.Gender, "female")
+                    </div>
+                </div>
+                <div class="form-group control-label">
+                    <div class="col-md-2">
+                        Activity level
+                    </div>
+
+                    <div class="col-md-10 text-left">
+                        @Html.RadioButtonFor(m => m.Activity, 1.2)
+                         sedentary (little to no exercise)
+                    </div>
+                    <div class="col-md-10 col-lg-offset-2 text-left">
+                        @Html.RadioButtonFor(m => m.Activity, 1.375)
+                        lightly active (light exercise 1-3 days per week)
+                    </div>
+                    <div class="col-md-10 col-lg-offset-2 text-left">
+                        @Html.RadioButtonFor(m => m.Activity, 1.55)
+                        moderately active (moderate exercise 3-5 days per week)
+                    </div>
+                    <div class="col-md-10 col-lg-offset-2 text-left">
+                        @Html.RadioButtonFor(m => m.Activity, 1.725)
+                        very active (hard exercise 6-7 days per week)
+                    </div>
+                    <div class="col-md-10 col-lg-offset-2 text-left">
+                        @Html.RadioButtonFor(m => m.Activity, 1.9)
+                        extra active (very hard exercise/training or physical job)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12 center">
+                        <input type="submit" value="Submit" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <!-- /.box-body -->
+</div>
+
+
 
