@@ -1,5 +1,4 @@
-﻿using NutritionApp.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -41,21 +40,6 @@ namespace NutritionApp.Controllers
         {
             ViewBag.Message = "About";
             return View();
-        }
-
-        public ActionResult CaldulateRMB(RMB model)
-        {
-
-            //using(var db = NutritionCtx())
-            //{
-            //    db.User.Add(new User() {
-            //        Name = model.Name
-            //    })
-            //    db.SaveChanges();
-            //}
-
-            return View("Home");
-
         }
 
     }
