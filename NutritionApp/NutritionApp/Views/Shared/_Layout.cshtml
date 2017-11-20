@@ -3,55 +3,71 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>@ViewBag.Title - Nutrition</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/fullcalendarcss")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <row>
-                        <div class="col-lg-2">
-                            <span class="icon-bar"></span>
+<body class="fon">
+    <header class="top-header">
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="social">
+                            <a href="http://www.facebook.com" target="_blank">
+                                <img src="~/Images/Facebook.png" alt="facebook" class="img-circule" />
+                            </a>
+                            <a href="http://www.instagram.com" target="_blank">
+                                <img src="~/Images/instagram.png" alt="facebook" class="img-circule" />
+                            </a>
                         </div>
-                        <div class="col-lg-2">
-                            <span class="icon-bar"></span>
-                        </div>
-                        <div class="col-lg-2">
-                            <span class="icon-bar"></span>
-                        </div>
-                        <div class="col-lg-3">
-                            <span class="icon-bar"></span>
-                        </div>
-                        <div class="col-lg-3">
-                            <span class="icon-bar"></span>
-                        </div>
-                    </row>
-                </button>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Categorii", "List", "Home")</li>
-                    <li>@Html.ActionLink("Calendar", "Calendar", "Home")</li>
-                    <li>@Html.ActionLink("Suggestions", "Suggestions", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                </ul>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Nutrition</p>
-        </footer>
-    </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <hr class="line-top" noshade="noshade" />
+                    <nav class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="active">@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Categorii", "List", "Home")</li>
+                            <li>@Html.ActionLink("Calendar", "Calendar", "Home")</li>
+                            <li>@Html.ActionLink("Suggestions", "Suggestions", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                        </ul>
+                    </nav>
+                    <hr class="line-top line-bottom" noshade="noshade" />
+                </div>
+            </div>
+        </div>
+     </header>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <div class="p-footer">
+                    <hr class="line-footer" noshade="noshade" />
+                    <p class="contact text-center">Contacte:</p>
+                    <div class="contacts">
+                        <p>Telefon: 068906090</p>
+                        <p>Facebook: <span class="btn btn-link" runat="server" target="_blank"> https://www.facebook.com/healthy_nutrition </span></p>
+                        <p>E-mail: healthy_nutrition@gmail.com</p>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+                    </div>
+                </div>
+                <p>&copy; @DateTime.Now.Year - Nutrition</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/fullcalendarjs")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
 </body>
 </html>

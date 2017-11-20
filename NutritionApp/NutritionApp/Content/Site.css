@@ -22,3 +22,62 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.header-top {
+    background-color: aliceblue;
+    padding: 8px 0;
+}
+
+.fon {
+    background-color: white;
+    padding-top: 0px;
+}
+
+.Logo {
+    margin-bottom: 30px;
+}
+
+
+.line-top {
+    color: #000000;
+    height: 3px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.line-bottom {
+    margin-bottom: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.line-footer {
+    color: #000000;
+    height: 3px;
+    margin-top: 40px;
+    margin-bottom: 0px;
+}
+
+.contact {
+    font-family: NautilusPompiliusRegular;
+    font-size: 25px;
+}
+
+.contacts {
+    font-family: NautilusPompiliusRegular;
+    font-size: 18px;
+}
+
+.p-0 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.p-footer {
+    padding-left: 0px;
+    padding-right: 30px;
+}
+
+
