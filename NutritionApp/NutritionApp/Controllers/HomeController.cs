@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NutritionApp.DAL;
+using NutritionApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,14 +15,19 @@ namespace NutritionApp.Controllers
             return View();
         }
 
-        public ActionResult List()
+        public ActionResult Food()
         {
-            var nutrition = new List<Nutrition>();
-            using (NutritionEntities dc = new NutritionEntities())
+            var food = new List<Food>();
+            using (var context = new NutritionContext())
             {
-                nutrition = dc.Nutritions.ToList();
+                food = context.Food.ToList();
             }
-            return View(nutrition);
+
+            var model = new FoodModel()
+            {
+                FoodList = food
+            };
+            return View(model);
         }
 
         public ActionResult Calendar()
@@ -40,6 +47,33 @@ namespace NutritionApp.Controllers
         {
             ViewBag.Message = "About";
             return View();
+        }
+
+        public ActionResult CaldulateRMB(RMBModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("About", model);
+            }
+
+            var user = new User()
+            {
+                Name = model.Name,
+                Weight = model.Weight,
+                Height = model.Height,
+                Age = model.Age,
+                Gender = model.Gender,
+                ActivityLevel = 10
+            };
+
+            using (var context = new NutritionContext())
+            {
+                context.Users.Add(user);
+                context.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+
         }
 
     }

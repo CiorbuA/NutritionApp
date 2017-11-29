@@ -15,12 +15,12 @@ namespace NutritionApp
     public partial class Nutrition
     {
         public int Id { get; set; }
-        public string Categorie { get; set; }
-        public string Nume { get; set; }
+        public string Category { get; set; }
+        public string Name { get; set; }
         public int kCal { get; set; }
-        public int Proteine { get; set; }
-        public int Glucide { get; set; }
-        public int Lipide { get; set; }
-        public int Fibre { get; set; }
+        public int Proteins { get; set; }
+        public int Glucides { get; set; }
+        public int Fats { get; set; }
+        public int Carbrohydrates { get; set; }
     }
 }

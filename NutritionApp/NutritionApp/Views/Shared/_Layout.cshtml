@@ -3,12 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>@ViewBag.Title - Nutrition</title>
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/bootstrapcss")
     @Styles.Render("~/Content/fullcalendarcss")
+    @Styles.Render("~/Content/customcss")
+
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body class="fon">
@@ -36,7 +35,7 @@
                     <nav class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li class="active">@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("Categorii", "List", "Home")</li>
+                            <li>@Html.ActionLink("Food", "Food", "Home")</li>
                             <li>@Html.ActionLink("Calendar", "Calendar", "Home")</li>
                             <li>@Html.ActionLink("Suggestions", "Suggestions", "Home")</li>
                             <li>@Html.ActionLink("About", "About", "Home")</li>

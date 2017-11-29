@@ -1,11 +1,12 @@
-﻿using System;
+﻿using NutritionApp.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
 namespace NutritionApp.Models
 {
-    public class RMB
+    public class RMBModel
     {
         public string Name { get; set; }
 
@@ -13,10 +14,11 @@ namespace NutritionApp.Models
 
         public double Height { get; set; }
 
-        public string Gender { get; set; }
+        public Gender Gender { get; set; }
+
+        public int Age { get; set; }
 
         public double Activity { get; set; }
-
 
     }
 

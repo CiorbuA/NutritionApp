@@ -1,15 +1,12 @@
-﻿@model NutritionApp.Models.RMB
+﻿@model NutritionApp.Models.RMBModel
 
 @{
     ViewBag.Title = "About";
 }
-<div class="container">
-    <img src="~/Views/1.jpg" class="img-rounded" alt="" width="304" height="236">
-</div>
 
 <div class="box">
     <div class="box-body">
-        @using (Html.BeginForm("CaldulateRMB", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form"}))
+        @using (Html.BeginForm("CaldulateRMB", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
         {
             @Html.AntiForgeryToken()
 
@@ -34,7 +31,7 @@
                         Height
                     </div>
                     <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Height, new { @class = "form-control", @type="number" })
+                        @Html.TextBoxFor(m => m.Height, new { @class = "form-control", @type = "number" })
                     </div>
                 </div>
                 <div class="form-group">
@@ -65,7 +62,7 @@
 
                     <div class="col-md-10 text-left">
                         @Html.RadioButtonFor(m => m.Activity, 1.2)
-                         sedentary (little to no exercise)
+                        sedentary (little to no exercise)
                     </div>
                     <div class="col-md-10 col-lg-offset-2 text-left">
                         @Html.RadioButtonFor(m => m.Activity, 1.375)
@@ -95,6 +92,5 @@
     </div>
     <!-- /.box-body -->
 </div>
-
 
 

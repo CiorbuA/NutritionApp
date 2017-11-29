@@ -1,0 +1,40 @@
+﻿@model NutritionApp.Models.FoodModel
+
+
+<div class="box">
+    <div class="box-body">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Kcal</th>
+                    <th scope="col">Proteins</th>
+                    <th scope="col">Fats</th>
+                    <th scope="col">Carbohydrates</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{ 
+                    var index = 1;
+                }
+
+                @foreach (var food in Model.FoodList)
+                {
+                    <tr>
+                        <th scope="row">@index</th>
+                        <td>@food.Name</td>
+                        <td>@food.KCal</td>
+                        <td>@food.Fats</td>
+                        <td>@food.Proteines</td>
+                        <td>@food.Carbohydrates</td>
+                    </tr>
+
+                    index++;
+                }
+                
+            </tbody>
+        </table>
+    </div>
+    <!-- /.box-body -->
+</div>
