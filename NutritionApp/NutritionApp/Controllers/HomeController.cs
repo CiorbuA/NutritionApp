@@ -3,9 +3,10 @@ using NutritionApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
-
 
 namespace NutritionApp.Controllers
 {
@@ -38,12 +39,54 @@ namespace NutritionApp.Controllers
             return View();
         }
 
+        // GET: Email
         public ActionResult Suggestions()
         {
-            ViewBag.Message = "Details";
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Suggestions(string receiverEmail, string subject, string message)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var senderemail = new MailAddress("nutrition161@gmail.com", "Nutrition");
+                    var receiveremail = new MailAddress(receiverEmail, "Receiver");
+
+                    var password = "anaviorica";
+                    var sub = subject;
+                    var body = message;
+
+                    var smtp = new SmtpClient
+                    {
+                        Host = "smtp.gmail.com",
+                        Port = 587,
+                        EnableSsl = true,
+                        DeliveryMethod = SmtpDeliveryMethod.Network,
+                        UseDefaultCredentials = false,
+                        Credentials = new NetworkCredential(senderemail.Address, password)
+                    };
+
+                    using (var mess = new MailMessage(senderemail, receiveremail)
+                    {
+                        Subject = subject,
+                        Body = body
+                    }
+                    )
+                    {
+                        smtp.Send(mess);
+                    }
+                    return View();
+                }
+            }
+            catch (Exception)
+            {
+                ViewBag.Error = "There are some problems in sending email";
+            }
+            return View();
+        }
         public ActionResult About()
         {
             ViewBag.Message = "About";

@@ -45,28 +45,28 @@
                 </div>
             </div>
         </div>
-     </header>
-        <div class="container body-content">
-            @RenderBody()
-            <hr />
-            <footer>
-                <div class="p-footer">
-                    <hr class="line-footer" noshade="noshade" />
-                    <p class="contact text-center">Contacte:</p>
-                    <div class="contacts">
-                        <p>Telefon: 068906090</p>
-                        <p>Facebook: <span class="btn btn-link" runat="server" target="_blank"> https://www.facebook.com/healthy_nutrition </span></p>
-                        <p>E-mail: healthy_nutrition@gmail.com</p>
+    </header>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <div class="p-footer">
+                <hr class="line-footer" noshade="noshade" />
+                <p class="contact-foot text-center">Contacts:</p>
+                <div class="contacts">
+                    <p>Phone: 068906090</p>
+                    <p>Facebook: <span class="btn btn-link" runat="server" target="_blank"> https://www.facebook.com/healthy_nutrition </span></p>
+                    <p>E-mail: nutrition161@gmail.com</p>
 
-                    </div>
                 </div>
-                <p>&copy; @DateTime.Now.Year - Nutrition</p>
-            </footer>
-        </div>
+            </div>
+            <p>&copy; @DateTime.Now.Year - Nutrition</p>
+        </footer>
+    </div>
 
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/fullcalendarjs")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/fullcalendarjs")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 </html>

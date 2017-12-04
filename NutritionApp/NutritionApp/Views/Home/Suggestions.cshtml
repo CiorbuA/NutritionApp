@@ -2,3 +2,60 @@
     ViewBag.Title = "Suggestions";
 }
 
+@if (ViewBag.Error != null)
+{
+    <h2>@ViewBag.Error</h2>
+}
+<div class="container">
+    <h4 class="contact-foot text-center">Suggestions and Recommendations</h4>
+    <form method="post" action="Suggestions">
+        <div class="row">
+            <div class="col-md-2">
+                <span class="form-control-static contacts">Name / Surname*:</span>
+            </div>
+            <div class="col-md-10">
+                <input class="form-control" type="text" placeholder="Your name" name="name" />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-2">
+                <span class="form-control-static contacts">E-mail*:</span>
+            </div>
+            <div class="col-md-10">
+                <input type="email" class="form-control" placeholder="Your e-mail" name="receiverEmail">
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-2">
+                <span runat="server" ID="Telefon" class="contacts">Phone:</span>
+            </div>
+            <div class="col-md-10">
+                <input type="text" class="form-control" placeholder="Your phone" id="telefon">
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-2">
+                <span class="form-control-static contacts"> Subject: </span>
+            </div>
+            <div class="col-md-10">
+                <input class="form-control" type="text" name="subject" />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-2">
+                <span class="form-control-static contacts">Message*: </span>
+            </div>
+            <div class="col-md-10">
+                <textarea class="form-control" name="message" cols="8" rows="6"></textarea>
+            </div>
+        </div>
+        <br />
+        <br />
+        <button class="btn btn-primary center-block" type="submit">Send E-mail</button>
+
+    </form>
+</div>

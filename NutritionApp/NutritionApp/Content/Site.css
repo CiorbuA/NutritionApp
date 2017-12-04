@@ -16,6 +16,15 @@
     white-space: normal;
 }
 
+body input:focus:required:invalid,
+body textarea:focus:required:invalid {
+}
+
+body input:required:valid,
+body textarea:required:valid {
+}
+
+
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
@@ -33,8 +42,15 @@ textarea {
     padding-top: 0px;
 }
 
-.Logo {
-    margin-bottom: 30px;
+.text-start {
+    width: 70%;
+    font-family: Lato-Light;
+    font-size: 5.5vw;
+    color: #FFF;
+    line-height: 91px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.65);
+    text-align: center;
+    margin: 30px auto 30px;
 }
 
 
@@ -61,13 +77,27 @@ textarea {
 }
 
 .contact {
-    font-family: NautilusPompiliusRegular;
-    font-size: 25px;
+    width: 70%;
+    font-family: Lato-Light;
+    font-size: 5.5vw;
+    font-style: italic;
+    color: black;
+    line-height: 91px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.65);
+    text-align: center;
+    margin: 0px;
+    margin-left: 150px;
 }
+
 
 .contacts {
     font-family: NautilusPompiliusRegular;
     font-size: 18px;
+}
+
+.contact-foot {
+    font-family: NautilusPompiliusRegular;
+    font-size: 25px;
 }
 
 .p-0 {
@@ -79,6 +109,3 @@ textarea {
     padding-left: 0px;
     padding-right: 30px;
 }
-
-
-
