@@ -6,12 +6,13 @@
 {
     <h2>@ViewBag.Error</h2>
 }
-<div class="container">
-    <h4 class="contact-foot text-center">Suggestions and Recommendations</h4>
+<div class="container contacts">
+    <h3 class="text-center">Suggestions and Recommendations</h3>
+    <br />
     <form method="post" action="Suggestions">
         <div class="row">
             <div class="col-md-2">
-                <span class="form-control-static contacts">Name / Surname*:</span>
+                <span class="form-control-static ">Name / Surname*:</span>
             </div>
             <div class="col-md-10">
                 <input class="form-control" type="text" placeholder="Your name" name="name" />
@@ -20,7 +21,7 @@
         <br />
         <div class="row">
             <div class="col-md-2">
-                <span class="form-control-static contacts">E-mail*:</span>
+                <span class="form-control-static ">E-mail*:</span>
             </div>
             <div class="col-md-10">
                 <input type="email" class="form-control" placeholder="Your e-mail" name="receiverEmail">
@@ -29,7 +30,7 @@
         <br />
         <div class="row">
             <div class="col-md-2">
-                <span runat="server" ID="Telefon" class="contacts">Phone:</span>
+                <span runat="server" ID="Telefon">Phone:</span>
             </div>
             <div class="col-md-10">
                 <input type="text" class="form-control" placeholder="Your phone" id="telefon">
@@ -38,7 +39,7 @@
         <br />
         <div class="row">
             <div class="col-md-2">
-                <span class="form-control-static contacts"> Subject: </span>
+                <span class="form-control-static"> Subject: </span>
             </div>
             <div class="col-md-10">
                 <input class="form-control" type="text" name="subject" />
@@ -47,7 +48,7 @@
         <br />
         <div class="row">
             <div class="col-md-2">
-                <span class="form-control-static contacts">Message*: </span>
+                <span class="form-control-static">Message*: </span>
             </div>
             <div class="col-md-10">
                 <textarea class="form-control" name="message" cols="8" rows="6"></textarea>

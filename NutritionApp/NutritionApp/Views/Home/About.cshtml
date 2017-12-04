@@ -10,16 +10,16 @@
         {
             @Html.AntiForgeryToken()
 
-            <div class="form-horizontal">
-                <h4>
+            <div class="form-horizontal contacts text-center">
+                <h3>
                     Calculate RMB
-                </h4>
+                </h3>
                 <hr />
                 @Html.ValidationSummary("", new { @class = "text-danger" })
 
                 <div class="form-group">
                     <div class="col-md-2 control-label">
-                        Name
+                       Name:
                     </div>
                     <div class="col-md-10">
                         @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
@@ -28,7 +28,7 @@
 
                 <div class="form-group">
                     <div class="col-md-2 control-label">
-                        Height
+                        Height*:
                     </div>
                     <div class="col-md-10">
                         @Html.TextBoxFor(m => m.Height, new { @class = "form-control", @type = "number" })
@@ -36,7 +36,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-2 control-label">
-                        Weight
+                        Weight*:
                     </div>
                     <div class="col-md-10">
                         @Html.TextBoxFor(m => m.Weight, new { @class = "form-control", @type = "number" })
@@ -44,20 +44,20 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-2 control-label">
-                        Gender
+                        Gender:
                     </div>
                     <div class="col-md-2">
-                        Male
                         @Html.RadioButtonFor(m => m.Gender, "male")
+                        M
                     </div>
                     <div class="col-md-2">
-                        Female
                         @Html.RadioButtonFor(m => m.Gender, "female")
+                        F
                     </div>
                 </div>
                 <div class="form-group control-label">
                     <div class="col-md-2">
-                        Activity level
+                        Activity level:
                     </div>
 
                     <div class="col-md-10 text-left">
@@ -81,7 +81,7 @@
                         extra active (very hard exercise/training or physical job)
                     </div>
                 </div>
-
+                <br />
                 <div class="form-group">
                     <div class="col-md-12 center">
                         <input type="submit" value="Submit" class="btn btn-primary" />
