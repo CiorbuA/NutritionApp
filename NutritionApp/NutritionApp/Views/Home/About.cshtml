@@ -7,73 +7,73 @@
 <div class="box">
     @if (Model.User == null)
     {
-    <div class="box-body">
-        @using (Html.BeginForm("CaldulateRMB", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-        {
-            @Html.AntiForgeryToken()
+        <div class="box-body">
+            @using (Html.BeginForm("CaldulateRMB", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
 
-            <div class="form-horizontal contacts text-center">
-                <h3>
-                    Calculate RMB
-                </h3>
-                <hr />
-                @Html.ValidationSummary("", new { @class = "text-danger" })
+                <div class="form-horizontal contacts text-center">
+                    <h3>
+                        Calculate RMB
+                    </h3>
+                    <hr />
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
 
-                <div class="form-group">
-                    <div class="col-md-2 control-label">
-                       Name:
-                    </div>
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-2 control-label">
-                        Height*:
-                    </div>
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Height, new { @class = "form-control", @type = "number" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-2 control-label">
-                        Weight*:
-                    </div>
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Weight, new { @class = "form-control", @type = "number" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-2 control-label">
-                        Gender:
-                    </div>
-                    <div class="col-md-2">
-                        @Html.RadioButtonFor(m => m.Gender, "male")
-                        M
-                    </div>
-                    <div class="col-md-2">
-                        @Html.RadioButtonFor(m => m.Gender, "female")
-                        F
-                    </div>
-                </div>
-                <div class="form-group control-label">
-                    <div class="col-md-2">
-                        Activity level:
+                    <div class="form-group">
+                        <div class="col-md-2 control-label">
+                            Name:
+                        </div>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                        </div>
                     </div>
 
-                    <div class="col-md-10 text-left">
-                        @Html.RadioButtonFor(m => m.Activity, 1.2)
-                        sedentary (little to no exercise)
+                    <div class="form-group">
+                        <div class="col-md-2 control-label">
+                            Height*:
+                        </div>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Height, new { @class = "form-control", @type = "number" })
+                        </div>
                     </div>
-                    <div class="col-md-10 col-lg-offset-2 text-left">
-                        @Html.RadioButtonFor(m => m.Activity, 1.375)
-                        lightly active (light exercise 1-3 days per week)
+                    <div class="form-group">
+                        <div class="col-md-2 control-label">
+                            Weight*:
+                        </div>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Weight, new { @class = "form-control", @type = "number" })
+                        </div>
                     </div>
-                    <div class="col-md-10 col-lg-offset-2 text-left">
-                        @Html.RadioButtonFor(m => m.Activity, 1.55)
-                        moderately active (moderate exercise 3-5 days per week)
+                    <div class="form-group">
+                        <div class="col-md-2 control-label">
+                            Gender:
+                        </div>
+                        <div class="col-md-2">
+                            @Html.RadioButtonFor(m => m.Gender, "male")
+                            M
+                        </div>
+                        <div class="col-md-2">
+                            @Html.RadioButtonFor(m => m.Gender, "female")
+                            F
+                        </div>
                     </div>
+                    <div class="form-group control-label">
+                        <div class="col-md-2">
+                            Activity level:
+                        </div>
+
+                        <div class="col-md-10 text-left">
+                            @Html.RadioButtonFor(m => m.Activity, 1.2)
+                            sedentary (little to no exercise)
+                        </div>
+                        <div class="col-md-10 col-lg-offset-2 text-left">
+                            @Html.RadioButtonFor(m => m.Activity, 1.375)
+                            lightly active (light exercise 1-3 days per week)
+                        </div>
+                        <div class="col-md-10 col-lg-offset-2 text-left">
+                            @Html.RadioButtonFor(m => m.Activity, 1.55)
+                            moderately active (moderate exercise 3-5 days per week)
+                        </div>
                         <div class="col-md-10 col-lg-offset-2 text-left">
                             @Html.RadioButtonFor(m => m.Activity, 1.725)
                             very active (hard exercise 6-7 days per week)
@@ -98,10 +98,37 @@
                         <input type="submit" value="Submit" class="btn btn-primary" />
                     </div>
                 </div>
-            </div>
-        }
-    </div>
-    <!-- /.box-body -->
+
+
+            }
+        </div>
+    }
+    else
+    {
+        <div class="box-body">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Height</th>
+                        <th scope="col">Weight</th>
+                        <th scope="col">RMB</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Model.User.Name</td>
+                        <td>@Model.User.Height</td>
+                        <td>@Model.User.Weight</td>
+                        <td>@Model.User.RMB</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+                        }
+<!-- /.box-body -->
 </div>
 
 
