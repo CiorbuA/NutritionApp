@@ -138,7 +138,7 @@ namespace NutritionApp.Controllers
             var model = new ConsumptionModel()
             {
                 ConsumtionList = consumptions,
-                KCal = user?.RMB ?? 2000 - kcal
+                KCal = user?.RMB ?? 1403.2 - kcal
                 
             };
             return View(model);

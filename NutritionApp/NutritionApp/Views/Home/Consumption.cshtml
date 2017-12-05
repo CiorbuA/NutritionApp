@@ -1,14 +1,13 @@
 ﻿@model NutritionApp.Models.ConsumptionModel
 
-<span>@Model.KCal</span>
 <div class="box-body">
     <table class="table">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">data</th>
-                <th scope="col">name</th>
-                <th scope="col">quantity</th>
-                <th scope="col">kCal</th>              
+                <th scope="col">Data</th>
+                <th scope="col">Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">KCal</th>              
             </tr>
         </thead>
         <tbody>
@@ -30,8 +29,10 @@
             <tr>
 
                 <tr>
-
-                    <td>@Model.KCal</td>
+                    <td> <b>Rest KCal:</b></td>
+                    <td></td>
+                    <td></td>
+                    <td> <b>@Model.KCal</b></td>
                     
                    
                 </tr>
