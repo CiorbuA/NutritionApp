@@ -1,6 +1,5 @@
 ﻿@model NutritionApp.Models.FoodModel
 
-
 <div class="box">
     <div class="box-body">
         <table class="table">
@@ -12,10 +11,11 @@
                     <th scope="col">Proteins</th>
                     <th scope="col">Fats</th>
                     <th scope="col">Carbohydrates</th>
+                    
                 </tr>
             </thead>
             <tbody>
-                @{ 
+                @{
                     var index = 1;
                 }
 
@@ -28,13 +28,66 @@
                         <td>@food.Fats</td>
                         <td>@food.Proteines</td>
                         <td>@food.Carbohydrates</td>
+                        <td>
+                            <button onclick='openFoodModal(@Html.Raw(Json.Encode(food)))' class="btn icon-btn btn-success">
+                                <span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>
+                                Add
+                            </button>
+                        </td>
                     </tr>
 
                     index++;
                 }
-                
+
             </tbody>
         </table>
     </div>
     <!-- /.box-body -->
+</div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="food-name"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="box">
+                <div class="box-body">
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Quantity</th>
+                                <ths scope="col">Kcal</ths>
+                                <th scope="col">Proteins</th>
+                                <th scope="col">Fats</th>
+                                <th scope="col">Carbohydrates</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="col"><input id="quantity" /> </th>
+                                <th scope="col"><span id="kcal-qt"></span></th>
+                                <th scope="col"><span id="proteines-qt"></span></th>
+                                <th scope="col"><span id="fats-qt"></span></th>
+                                <th scope="col"><span id="carbs-qt"></span></th>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button onclick="saveConsumtion()" type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

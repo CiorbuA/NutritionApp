@@ -20,6 +20,9 @@ namespace NutritionApp.DAL
         public double Proteines { get; set; }
 
         public double Carbohydrates { get; set; }
+
+        public ICollection<Consumption> Consumptions { get; set; }
+
     }
 
     public enum FoodCategory

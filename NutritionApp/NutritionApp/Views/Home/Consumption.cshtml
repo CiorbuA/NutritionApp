@@ -1,0 +1,48 @@
+﻿@model NutritionApp.Models.ConsumptionModel
+
+<span>@Model.KCal</span>
+<div class="box-body">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">data</th>
+                <th scope="col">name</th>
+                <th scope="col">quantity</th>
+                <th scope="col">kCal</th>              
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var consumption in Model.ConsumtionList)
+            {
+                <tr>
+
+                    <td>@consumption.Date</td>
+                    <td>@consumption.Food.Name</td>
+                    <td>@consumption.Quantity</td>
+                    <td>@consumption.Food.KCal </td>
+                   
+                </tr>
+
+
+            }
+
+            <tr>
+
+                <tr>
+
+                    <td>@Model.KCal</td>
+                    
+                   
+                </tr>
+
+               
+
+            </tr>
+
+            </tbody>
+        </table>
+
+    
+
+    </div>

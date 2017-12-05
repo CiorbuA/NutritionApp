@@ -20,6 +20,10 @@ namespace NutritionApp.DAL
         public double ActivityLevel { get; set; }
 
         public Gender Gender { get; set; }
+
+        public double RMB { get; set; }
+
+        public ICollection<Consumption> Consumptions { get; set; }
     }
 
     public enum Gender
