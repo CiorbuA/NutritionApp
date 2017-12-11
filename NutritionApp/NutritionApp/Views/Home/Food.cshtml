@@ -1,6 +1,22 @@
 ﻿@model NutritionApp.Models.FoodModel
 
+
 <div class="box">
+
+    <form action="/Home/Food/">
+        <div class="row">
+            <div class="col-md-2">
+                <span class="form-control-static contacts">Product:</span>
+                </div>
+            <div class="col-md-6">
+                <input type="text" name="param">
+            </div>
+            <div class="col-md-4">
+                <input class="btn btn-primary center-block" type="submit" value="Submit">
+            </div>
+        </div>
+</form>
+
     <div class="box-body">
         <table class="table">
             <thead class="thead-dark">

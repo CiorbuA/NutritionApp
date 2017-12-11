@@ -16,13 +16,19 @@ namespace NutritionApp.Controllers
         {
             return View();
         }
-
-        public ActionResult Food()
+        [HttpGet]
+        [Route("")]
+        [Route("{param}")]
+        public ActionResult Food(string param)
         {
+
             var food = new List<Food>();
             using (var context = new NutritionContext())
             {
-                food = context.Food.ToList();
+                if (!string.IsNullOrEmpty(param))
+                    food = context.Food.Where(w => w.Name == param).ToList();
+                else
+                    food = context.Food.ToList();
             }
 
             var model = new FoodModel()
