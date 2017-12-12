@@ -5,16 +5,17 @@
 
     <form action="/Home/Food/">
         <div class="row">
-            <div class="col-md-2">
-                <span class="form-control-static contacts">Product:</span>
+            <div class="col-md-4 col-md-offset-4">
+                <div class="input-group ">
+                    <span class="input-group-btn">
+                        <button class="btn btn-secondary"  type="submit">Search</button>
+                    </span>
+                    <input type="text" class="form-control" name="param" placeholder="Search products..." aria-label="Search for...">
                 </div>
-            <div class="col-md-6">
-                <input type="text" name="param">
             </div>
-            <div class="col-md-4">
-                <input class="btn btn-primary center-block" type="submit" value="Submit">
             </div>
-        </div>
+        <br/>
+        <br/>
 </form>
 
     <div class="box-body">
