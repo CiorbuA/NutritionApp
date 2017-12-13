@@ -38,12 +38,56 @@ namespace NutritionApp.Controllers
             return View(model);
         }
 
-        public ActionResult Calendar()
+        public ActionResult Menu()
         {
-            ViewBag.Message = "Calendar";
 
-            return View();
+            var products = new List<Product>();
+            var user = new User();
+            using (var context = new NutritionContext())
+            {
+                products = context.WareHouse.ToList();
+                user = context.Users.FirstOrDefault();
+
+            }
+
+            var rmb = Convert.ToInt32(user.RMB);
+
+            var ic = new ItemCollection[rmb + 1];
+
+            for (int i = 0; i <= rmb; i++) ic[i] = new ItemCollection();
+
+            for (int i = 0; i < products.Count; i++)
+                for (int j = rmb; j >= 0; j--)
+                    if (j >= products[i].Weight)
+                    {
+                        int quantity = Math.Min(products[i].Quantity, j / products[i].Weight);
+                        for (int k = 1; k <= quantity; k++)
+                        {
+                            ItemCollection lighterCollection = ic[j - k * products[i].Weight];
+                            int testValue = lighterCollection.TotalValue + k * products[i].Quantity;
+                            if (testValue > ic[j].TotalValue) (ic[j] = lighterCollection.Copy()).AddItem(products[i], k);
+                        }
+                    }
+
+            var selectedProducts = new List<Product>();
+
+            foreach (KeyValuePair<int, int> kvp in ic[rmb].Contents)
+            {
+                var product = products.FirstOrDefault(f => f.Id == kvp.Key);
+                product.Quantity = kvp.Value;
+                selectedProducts.Add(product);
+            }
+
+            var model = new MenuModel()
+            {
+                Menu = selectedProducts
+
+            };
+
+            return View(model);
         }
+
+
 
         // GET: Email
         public ActionResult Suggestions()
@@ -123,19 +167,20 @@ namespace NutritionApp.Controllers
             }
         }
 
-        public ActionResult Consumption() {
+        public ActionResult Consumption()
+        {
             var consumptions = new List<Consumption>();
             var date = DateTime.Now.Date;
             using (var context = new NutritionContext())
-            {               
+            {
                 consumptions = context.Consumption.Include("Food").Where(w => w.Date > date).ToList();
-                
+
             }
 
             var kcal = consumptions.Sum(s => s.Food.KCal * s.Quantity);
             var prot = consumptions.Sum(p => p.Food.Proteines * p.Quantity);
             var carb = consumptions.Sum(c => c.Food.Carbohydrates * c.Quantity);
-            
+
 
 
 
@@ -145,10 +190,10 @@ namespace NutritionApp.Controllers
             {
                 ConsumtionList = consumptions,
                 KCal = user?.RMB ?? 1403.2 - kcal
-                
+
             };
             return View(model);
-    }
+        }
 
         public ActionResult CaldulateRMB(AboutModel model)
         {
@@ -156,7 +201,7 @@ namespace NutritionApp.Controllers
             {
                 return View("About", model);
             }
-            
+
             var user = new User()
             {
                 Name = model.Name,
@@ -166,7 +211,7 @@ namespace NutritionApp.Controllers
                 Gender = model.Gender,
                 ActivityLevel = model.Activity,
                 RMB = GetRMB(model)
-                         
+
             };
 
             using (var context = new NutritionContext())
@@ -197,12 +242,12 @@ namespace NutritionApp.Controllers
                     context.SaveChanges();
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 // Something is going wrong
                 return false;
             }
-            
+
             return true;
         }
 

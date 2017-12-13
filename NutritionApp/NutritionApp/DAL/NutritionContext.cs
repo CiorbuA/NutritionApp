@@ -14,6 +14,7 @@ namespace NutritionApp.DAL
         public DbSet<User> Users { get; set; }
         public DbSet<Food> Food { get; set; }                   
         public DbSet<Consumption> Consumption { get; set; }
+        public DbSet<Product> WareHouse { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
