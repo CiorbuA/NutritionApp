@@ -630,7 +630,10 @@ public class TypeMapper
 
     public IEnumerable<string> GetAllGlobalItems(IEnumerable<GlobalItem> itemCollection)
     {
-        return itemCollection
+        return 
+
+
+
             .Where(i => i is EntityType || i is ComplexType || i is EntityContainer || IsEnumType(i))
             .Select(g => GetGlobalItemName(g));
     }
